@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Gusniati Br. Nababan - Personal Branding</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="beranda">
+        <nav>
+            <div class="logo">Sri Gusniati Br Nababan</div>
+            <ul>
+                <li><a href="#tentang">Tentang Saya</a></li>
+                <li><a href="#prestasi">Prestasi & Proyek</a></li>
+                <li><a href="#kontak">Hubungi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Halo! Saya Sri Gusniati Br. Nababan</h1>
+            <h2>Web Developer & Designer | Full-Time Pacar Mingyu 👑</h2>
+            <a href="#prestasi" class="cta-button">Lihat Karya Saya</a>
+        </div>
+    </section>
+
+    <section id="tentang">
+        <h2 class="show-on-scroll">Tentang Saya</h2>
+        
+        <div class="tentang-main-container">
+
+            <div class="profil-foto-side hidden show-on-scroll" data-delay="0">
+                <img src="gus.jpg" alt="Foto Profil Sri Gusniati" class="profil-img-tentang">
+            </div>
+
+            <div class="data-diri-side hidden show-on-scroll" data-delay="1">
+                
+                <div class="personal-info-single-box">
+                    <h3>Profil Singkat</h3>
+                    <div class="data-row">
+                        <div class="data-col">
+                            <p><strong>Umur:</strong> 18 Tahun</p>
+                            <p><strong>Jenjang Pendidikan:</strong> SMKN 6 Muaro Jambi</p>
+                            <p><strong>Status:</strong> Pacar Mingyu (Prioritas Utama) 😉</p>
+                            <p><strong>Ukuran Sepatu:</strong> 39</p>
+                            <p><strong>Berat Badan:</strong> 45 kg</p>
+                            <p><strong>Tinggi Badan:</strong> Gtw (Misteri yang menantang)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prestasi">
+        <h2 class="show-on-scroll">Prestasi & Proyek Pilihan</h2>
+        <div class="kartu-prestasi">
+            <div class="kartu hidden show-on-scroll" data-delay="0">
+                <h3>Sertifikasi Profesional</h3>
+                <ul>
+                    <li>Mendapatkan Sertifikat Dicoding (Bukti Kompetensi Web Development)</li>
+                </ul>
+            </div>
+            <div class="kartu hidden show-on-scroll" data-delay="1">
+                <h3>Proyek Pengembangan Web</h3>
+                <ul>
+                    <li>Membuat Aplikasi Berbasis Web untuk Pencatatan Berkas.</li>
+                    <li>Mengembangkan Web Belajar untuk Jenjang Pendidikan.</li>
+                </ul>
+            </div>
+            <div class="kartu hidden show-on-scroll" data-delay="2">
+                <h3>Prestasi Non-Teknis</h3>
+                <ul>
+                    <li>Gak pernah gagal membuat Mingyu bolak-balik ke rumah (Aset soft skill dalam persistence).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <h2 class="show-on-scroll">Ayo Berkolaborasi!</h2>
+        <p class="hidden show-on-scroll">Tertarik dengan kemampuan coding saya atau ingin membahas Mingyu? Hubungi saya!</p>
+        <a href="mailto:emailanda@example.com" class="cta-button hidden show-on-scroll">Kirim Email</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sri Gusniati Br. Nababan. Dibuat dengan Cinta & Warna Pink.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay * 200; // Hitung delay
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                        entry.target.classList.remove('hidden'); // Opsional: Hapus hidden setelah tampil
+                    }, delay);
+                    observer.unobserve(entry.target); // Hentikan observasi setelah muncul
+                }
+            });
+        }, {
+            threshold: 0.15 // Persentase elemen yang harus terlihat sebelum muncul
+        });
+
+        document.querySelectorAll('.show-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>

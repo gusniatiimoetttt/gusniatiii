@@ -1,0 +1,301 @@
+/* --- Palet Warna --- */
+:root {
+    --primary-pink: #FF69B4; 
+    --secondary-bg: #FFF0F5; 
+    --accent-dark: #C71585; 
+    --text-color: #333333;
+    --light-pink: #FFC0CB;
+}
+
+/* ---------------------------------- */
+/* --- CSS UNTUK ANIMASI SCROLL --- */
+/* ---------------------------------- */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px); /* Posisi awal: sedikit di bawah */
+}
+
+/* Animasi untuk Foto dan Data Diri */
+.profil-foto-side.hidden {
+    transform: translateX(-100%); /* Foto mulai dari kiri */
+}
+.data-diri-side.hidden {
+    transform: translateX(100%); /* Data mulai dari kanan */
+}
+
+/* Class Show: Kondisi akhir setelah animasi terpicu */
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0); /* Kembali ke posisi normal */
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi Mengambang/Bounce */
+}
+/* Memastikan elemen non-spesifik juga menggunakan transisi yang sama */
+.show-on-scroll {
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* ---------------------------------- */
+
+
+/* --- Global Style & Animasi Dasar --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+a, .cta-button, .kartu, .logo {
+    transition: all 0.3s ease-in-out; 
+}
+
+/* --- Header & Navigasi (Horizontal) --- */
+header {
+    background-color: white; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 5%;
+}
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.logo {
+    color: var(--primary-pink);
+    font-weight: 700;
+    font-size: 1.5em;
+}
+.logo:hover {
+    color: var(--accent-dark);
+    transform: scale(1.05); 
+}
+nav ul {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    gap: 25px; 
+}
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+nav a:hover {
+    color: var(--primary-pink);
+    text-shadow: 0 0 5px var(--light-pink);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-pink), var(--light-pink)); 
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.hero h2 {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* --- Call to Action Button & Animasi Hover --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-dark);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.cta-button:hover {
+    background-color: var(--primary-pink);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-3px); 
+}
+
+/* --- Section Konten Umum --- */
+section {
+    padding: 60px 5%;
+    text-align: center;
+}
+section:nth-child(even) { 
+    background-color: white;
+}
+h2 {
+    color: var(--primary-pink);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* --- Section Tentang Saya Layout --- */
+
+.tentang-main-container {
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    flex-wrap: wrap; 
+}
+
+/* Kolom Kiri: Foto Profil (Bulat) */
+.profil-foto-side {
+    flex: 0 0 200px;
+    text-align: center;
+    padding-top: 15px; 
+}
+.profil-img-tentang {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 5px solid var(--primary-pink); 
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5); 
+}
+.profil-img-tentang:hover {
+    transform: rotate(3deg);
+    box-shadow: 0 0 20px 5px var(--primary-pink);
+}
+
+
+/* Kolom Kanan: Data Diri (Satu Kotak) */
+.data-diri-side {
+    flex: 1; 
+    min-width: 450px; 
+}
+.personal-info-single-box {
+    padding: 25px;
+    background-color: white;
+    border: 1px solid var(--light-pink);
+    border-left: 5px solid var(--primary-pink); 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.personal-info-single-box h3 {
+    color: var(--accent-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--light-pink);
+    padding-bottom: 10px;
+}
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.data-col {
+    flex: 1;
+    min-width: 150px;
+}
+.data-col p {
+    margin: 5px 0;
+}
+.data-col p:hover strong {
+    color: var(--primary-pink);
+}
+.data-col p:hover {
+    transform: translateX(5px);
+}
+
+/* --- Kartu Prestasi & Animasi Hover --- */
+.kartu-prestasi {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.kartu {
+    background-color: white;
+    border: 1px solid var(--light-pink);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+.kartu:hover {
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3); 
+    transform: translateY(-5px); 
+    border-color: var(--primary-pink);
+}
+
+.kartu h3 {
+    color: var(--accent-dark);
+    border-bottom: 2px solid var(--primary-pink);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+.kartu ul {
+    list-style: '💖 ';
+    padding-left: 20px;
+}
+.kartu li:hover {
+    color: var(--accent-dark);
+    transform: translateX(3px);
+}
+.kartu li {
+    margin-bottom: 10px;
+    transition: all 0.2s ease-out; 
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-pink);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+footer:hover {
+    background-color: var(--accent-dark);
+}
+
+/* --- Media Queries untuk Responsif (Ponsel) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tentang-main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profil-foto-side {
+        padding-top: 0;
+    }
+    .data-diri-side {
+        min-width: 90%; 
+    }
+    .data-row {
+        flex-direction: column;
+    }
+    .kartu-prestasi {
+        flex-direction: column;
+        align-items: center;
+    }
+    .kartu {
+        max-width: 90%;
+    }
+}
